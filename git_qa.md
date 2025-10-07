@@ -1,14 +1,14 @@
-1) what is difference between waterfall and agile 
+what is difference between waterfall and agile 
 
 Waterfall Model	Agile Model
 waterfall -Sequential — project moves step by step (requirement → design → development → testing → deployment).	
 agile - Iterative and incremental — project is divided into small parts (sprints).
 
-2) what is devops 
+what is devops 
 
 DevOps is a set of practices, tools, and a cultural philosophy that automate and integrate the processes between software development and IT teams.
 
-3) devops lifecycle
+devops lifecycle
 
 The DevOps lifecycle includes 7 key stages:
 
@@ -27,7 +27,7 @@ Deploy – Deliver updates continuously or automatically.
 Monitoring – Manage performance, fix issues, and monitor feedback.
 
 
-4) devops principles/phases 
+devops principles/phases 
 
 Continuous Integration (CI) – Merge code changes frequently.
 
@@ -39,7 +39,7 @@ Continuous Monitoring – Track performance and user experience.
 
 Feedback & Improvement – Use feedback loops to improve future releases.
 
-5)what is scrum 
+what is scrum 
 
 Scrum is a framework used in Agile methodology for managing and completing complex projects.
 
