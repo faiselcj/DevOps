@@ -1,3 +1,6 @@
 Hi there 
 
-welcome to git repo
+Welcome to github!
+
+How are you doing
+
