@@ -31,9 +31,9 @@ Monitoring – Manage performance, fix issues, and monitor feedback.
 
 Continuous Integration (CI) – Merge code changes frequently.
 
-Continuous Delivery (CD) – Keeps the code ready for deployment after testing.
+Continuous Delivery (CD) – Keeps the Build ready for deployment after testing.
 
-CD (Continuous Deployment) - Automatically deploys every tested change to production.
+CD (Continuous Deployment) - Automatically deploys to production.
 
 Continuous Monitoring – Track performance and user experience.
 
