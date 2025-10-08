@@ -2,7 +2,7 @@ Linux commands
 
 
 
-APT
+APT package
 
 . apt install sudo - to install (lib,package)
 
