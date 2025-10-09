@@ -1,3 +1,20 @@
+Mastering Git for Version Control
+
+Difference between CVCS and DVCS
+Importance of Git
+Installation of Git
+Git three-stage Architecture
+Detailed explanation of Repository, Commit, Tags, Snapshots, Push-Pull Mechanism, and Branching Strategy
+Working with Git stash and Git pop
+Resolve Merge conflicts in Git
+Git Revert and Reset (Reset vs Revert)
+Git rebase
+Working with git Squash
+Git cherry pick
+What is Git fork?
+
+
+
 1. Command	Definition
 git init  --Creates a new Git repository in the current directory.
 
