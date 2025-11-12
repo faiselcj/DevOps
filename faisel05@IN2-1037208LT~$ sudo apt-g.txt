@@ -1,0 +1,707 @@
+faisel05@IN2-1037208LT:~$ sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+[sudo] password for faisel05:
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:4 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1270 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1573 kB]
+Get:7 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [211 kB]
+Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [9008 B]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [906 kB]
+Get:11 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [203 kB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [52.3 kB]
+Get:13 http://security.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [19.4 kB]
+Get:14 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2080 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main Translation-en [297 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+Get:17 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [15.4 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1498 kB]
+Get:19 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [470 kB]
+Get:20 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+Get:21 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+Get:22 http://archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [303 kB]
+Get:23 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [377 kB]
+Get:24 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [31.4 kB]
+Get:25 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2226 kB]
+Get:26 http://archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [505 kB]
+Get:27 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:28 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:29 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7128 B]
+Get:30 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [11.0 kB]
+Get:31 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+Get:32 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Fetched 12.6 MB in 15s (858 kB/s)
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+ca-certificates is already the newest version (20240203).
+ca-certificates set to manually installed.
+curl is already the newest version (8.5.0-2ubuntu10.6).
+curl set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 40 not upgraded.
+faisel05@IN2-1037208LT:~$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+Get:1 https://download.docker.com/linux/ubuntu noble InRelease [48.5 kB]
+Get:2 https://download.docker.com/linux/ubuntu noble/stable amd64 Packages [33.5 kB]
+Hit:3 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Fetched 82.0 kB in 11s (7371 B/s)
+Reading package lists... Done
+faisel05@IN2-1037208LT:~$  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  docker-ce-rootless-extras iptables libip4tc2 libip6tc2 libnetfilter-conntrack3 libnfnetlink0 libnftables1 libnftnl11
+  libslirp0 nftables pigz slirp4netns
+Suggested packages:
+  cgroupfs-mount | cgroup-lite docker-model-plugin firewalld
+The following NEW packages will be installed:
+  containerd.io docker-buildx-plugin docker-ce docker-ce-cli docker-ce-rootless-extras docker-compose-plugin iptables
+  libip4tc2 libip6tc2 libnetfilter-conntrack3 libnfnetlink0 libnftables1 libnftnl11 libslirp0 nftables pigz
+  slirp4netns
+0 upgraded, 17 newly installed, 0 to remove and 40 not upgraded.
+Need to get 106 MB of archives.
+After this operation, 441 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 libip4tc2 amd64 1.8.10-3ubuntu2 [23.3 kB]
+Get:2 https://download.docker.com/linux/ubuntu noble/stable amd64 containerd.io amd64 1.7.28-1~ubuntu.24.04~noble [31.9 MB]
+Get:3 http://archive.ubuntu.com/ubuntu noble/main amd64 libip6tc2 amd64 1.8.10-3ubuntu2 [23.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble/main amd64 libnfnetlink0 amd64 1.0.2-2build1 [14.8 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble/main amd64 libnetfilter-conntrack3 amd64 1.0.9-6build1 [45.2 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 libnftnl11 amd64 1.2.6-2build1 [66.0 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble/main amd64 iptables amd64 1.8.10-3ubuntu2 [381 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble/universe amd64 pigz amd64 2.8-1 [65.6 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 libnftables1 amd64 1.0.9-1build1 [358 kB]
+Get:10 http://archive.ubuntu.com/ubuntu noble/main amd64 nftables amd64 1.0.9-1build1 [69.8 kB]
+Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 libslirp0 amd64 4.7.0-1ubuntu3 [63.8 kB]
+Get:12 http://archive.ubuntu.com/ubuntu noble/universe amd64 slirp4netns amd64 1.2.1-1build2 [34.9 kB]
+Get:13 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce-cli amd64 5:28.5.1-1~ubuntu.24.04~noble [16.5 MB]
+Get:14 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce amd64 5:28.5.1-1~ubuntu.24.04~noble [19.7 MB]
+Get:15 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-buildx-plugin amd64 0.29.1-1~ubuntu.24.04~noble [15.9 MB]
+Get:16 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce-rootless-extras amd64 5:28.5.1-1~ubuntu.24.04~noble [6481 kB]
+Get:17 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-compose-plugin amd64 2.40.3-1~ubuntu.24.04~noble [14.3 MB]
+Fetched 106 MB in 19s (5477 kB/s)
+Selecting previously unselected package containerd.io.
+(Reading database ... 43675 files and directories currently installed.)
+Preparing to unpack .../00-containerd.io_1.7.28-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking containerd.io (1.7.28-1~ubuntu.24.04~noble) ...
+Selecting previously unselected package docker-ce-cli.
+Preparing to unpack .../01-docker-ce-cli_5%3a28.5.1-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-ce-cli (5:28.5.1-1~ubuntu.24.04~noble) ...
+Selecting previously unselected package libip4tc2:amd64.
+Preparing to unpack .../02-libip4tc2_1.8.10-3ubuntu2_amd64.deb ...
+Unpacking libip4tc2:amd64 (1.8.10-3ubuntu2) ...
+Selecting previously unselected package libip6tc2:amd64.
+Preparing to unpack .../03-libip6tc2_1.8.10-3ubuntu2_amd64.deb ...
+Unpacking libip6tc2:amd64 (1.8.10-3ubuntu2) ...
+Selecting previously unselected package libnfnetlink0:amd64.
+Preparing to unpack .../04-libnfnetlink0_1.0.2-2build1_amd64.deb ...
+Unpacking libnfnetlink0:amd64 (1.0.2-2build1) ...
+Selecting previously unselected package libnetfilter-conntrack3:amd64.
+Preparing to unpack .../05-libnetfilter-conntrack3_1.0.9-6build1_amd64.deb ...
+Unpacking libnetfilter-conntrack3:amd64 (1.0.9-6build1) ...
+Selecting previously unselected package libnftnl11:amd64.
+Preparing to unpack .../06-libnftnl11_1.2.6-2build1_amd64.deb ...
+Unpacking libnftnl11:amd64 (1.2.6-2build1) ...
+Selecting previously unselected package iptables.
+Preparing to unpack .../07-iptables_1.8.10-3ubuntu2_amd64.deb ...
+Unpacking iptables (1.8.10-3ubuntu2) ...
+Selecting previously unselected package docker-ce.
+Preparing to unpack .../08-docker-ce_5%3a28.5.1-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-ce (5:28.5.1-1~ubuntu.24.04~noble) ...
+Selecting previously unselected package pigz.
+Preparing to unpack .../09-pigz_2.8-1_amd64.deb ...
+Unpacking pigz (2.8-1) ...
+Selecting previously unselected package libnftables1:amd64.
+Preparing to unpack .../10-libnftables1_1.0.9-1build1_amd64.deb ...
+Unpacking libnftables1:amd64 (1.0.9-1build1) ...
+Selecting previously unselected package nftables.
+Preparing to unpack .../11-nftables_1.0.9-1build1_amd64.deb ...
+Unpacking nftables (1.0.9-1build1) ...
+Selecting previously unselected package docker-buildx-plugin.
+Preparing to unpack .../12-docker-buildx-plugin_0.29.1-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-buildx-plugin (0.29.1-1~ubuntu.24.04~noble) ...
+Selecting previously unselected package docker-ce-rootless-extras.
+Preparing to unpack .../13-docker-ce-rootless-extras_5%3a28.5.1-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-ce-rootless-extras (5:28.5.1-1~ubuntu.24.04~noble) ...
+Selecting previously unselected package docker-compose-plugin.
+Preparing to unpack .../14-docker-compose-plugin_2.40.3-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-compose-plugin (2.40.3-1~ubuntu.24.04~noble) ...
+Selecting previously unselected package libslirp0:amd64.
+Preparing to unpack .../15-libslirp0_4.7.0-1ubuntu3_amd64.deb ...
+Unpacking libslirp0:amd64 (4.7.0-1ubuntu3) ...
+Selecting previously unselected package slirp4netns.
+Preparing to unpack .../16-slirp4netns_1.2.1-1build2_amd64.deb ...
+Unpacking slirp4netns (1.2.1-1build2) ...
+Setting up libip4tc2:amd64 (1.8.10-3ubuntu2) ...
+Setting up libip6tc2:amd64 (1.8.10-3ubuntu2) ...
+Setting up libnftnl11:amd64 (1.2.6-2build1) ...
+Setting up docker-buildx-plugin (0.29.1-1~ubuntu.24.04~noble) ...
+Setting up containerd.io (1.7.28-1~ubuntu.24.04~noble) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /usr/lib/systemd/system/containerd.service.
+Setting up docker-compose-plugin (2.40.3-1~ubuntu.24.04~noble) ...
+Setting up docker-ce-cli (5:28.5.1-1~ubuntu.24.04~noble) ...
+Setting up libslirp0:amd64 (4.7.0-1ubuntu3) ...
+Setting up pigz (2.8-1) ...
+Setting up libnfnetlink0:amd64 (1.0.2-2build1) ...
+Setting up docker-ce-rootless-extras (5:28.5.1-1~ubuntu.24.04~noble) ...
+Setting up libnftables1:amd64 (1.0.9-1build1) ...
+Setting up nftables (1.0.9-1build1) ...
+Setting up slirp4netns (1.2.1-1build2) ...
+Setting up libnetfilter-conntrack3:amd64 (1.0.9-6build1) ...
+Setting up iptables (1.8.10-3ubuntu2) ...
+update-alternatives: using /usr/sbin/iptables-legacy to provide /usr/sbin/iptables (iptables) in auto mode
+update-alternatives: using /usr/sbin/ip6tables-legacy to provide /usr/sbin/ip6tables (ip6tables) in auto mode
+update-alternatives: using /usr/sbin/iptables-nft to provide /usr/sbin/iptables (iptables) in auto mode
+update-alternatives: using /usr/sbin/ip6tables-nft to provide /usr/sbin/ip6tables (ip6tables) in auto mode
+update-alternatives: using /usr/sbin/arptables-nft to provide /usr/sbin/arptables (arptables) in auto mode
+update-alternatives: using /usr/sbin/ebtables-nft to provide /usr/sbin/ebtables (ebtables) in auto mode
+Setting up docker-ce (5:28.5.1-1~ubuntu.24.04~noble) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /usr/lib/systemd/system/docker.service.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /usr/lib/systemd/system/docker.socket.
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+faisel05@IN2-1037208LT:~$  sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset: enabled)
+     Active: active (running) since Mon 2025-11-03 12:25:30 UTC; 12s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 1539 (dockerd)
+      Tasks: 16
+     Memory: 23.5M (peak: 25.9M)
+        CPU: 423ms
+     CGroup: /system.slice/docker.service
+             └─1539 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.203552689Z" level=info msg="CDI directory does n>
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.220273667Z" level=info msg="Creating a container>
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.309584736Z" level=info msg="Loading containers: >
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.589540022Z" level=info msg="Loading containers: >
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.636161145Z" level=info msg="Docker daemon" commi>
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.637083473Z" level=info msg="Initializing buildki>
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.675081418Z" level=info msg="Completed buildkit i>
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.680748388Z" level=info msg="Daemon has completed>
+Nov 03 12:25:30 IN2-1037208LT dockerd[1539]: time="2025-11-03T12:25:30.680859595Z" level=info msg="API listen on /run/d>
+Nov 03 12:25:30 IN2-1037208LT systemd[1]: Started docker.service - Docker Application Container Engine.
+
+faisel05@IN2-1037208LT:~$  sudo systemctl start docker
+faisel05@IN2-1037208LT:~$ docker ps
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.51/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+faisel05@IN2-1037208LT:~$  sudo docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+17eec7bbc9d7: Pull complete
+Digest: sha256:56433a6be3fda188089fb548eae3d91df3ed0d6589f7c2656121b911198df065
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+faisel05@IN2-1037208LT:~$ ls
+DevOps  Linux-learning  second.txt  secondscript.sh  sys_monitor.log
+faisel05@IN2-1037208LT:~$ docker ps
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.51/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+faisel05@IN2-1037208LT:~$ cd var/run/docker
+-bash: cd: var/run/docker: No such file or directory
+faisel05@IN2-1037208LT:~$ ls
+DevOps  Linux-learning  second.txt  secondscript.sh  sys_monitor.log
+faisel05@IN2-1037208LT:~$ docker iamges
+docker: unknown command: docker iamges
+
+Run 'docker --help' for more information
+faisel05@IN2-1037208LT:~$ docker images
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+faisel05@IN2-1037208LT:~$ ls -l
+total 20
+drwxr-xr-x 2 faisel05 faisel05 4096 Sep 28 15:49 DevOps
+drwxr-xr-x 2 faisel05 faisel05 4096 Sep 25 15:28 Linux-learning
+-rw-r--r-- 1 faisel05 faisel05   14 Oct 27 05:24 second.txt
+-rwxrwxrwx 1 faisel05 faisel05   79 Oct 27 05:22 secondscript.sh
+-rw-r--r-- 1 faisel05 faisel05 2691 Oct 30 05:37 sys_monitor.log
+faisel05@IN2-1037208LT:~$ cd
+faisel05@IN2-1037208LT:~$ cd /
+faisel05@IN2-1037208LT:/$ ls
+Personal           boot  home  lib.usr-is-merged  media  proc  sbin                srv  usr
+bin                dev   init  lib64              mnt    root  sbin.usr-is-merged  sys  var
+bin.usr-is-merged  etc   lib   lost+found         opt    run   snap                tmp
+faisel05@IN2-1037208LT:/$  cd /var/
+faisel05@IN2-1037208LT:/var$ ls
+backups  cache  crash  lib  local  lock  log  mail  opt  run  snap  spool  tmp
+faisel05@IN2-1037208LT:/var$ cd run/
+faisel05@IN2-1037208LT:/var/run$ ls
+WSL            console-setup  crond.reboot  docker.sock  motd.dynamic.new  shm                systemd           user
+agetty.reload  containerd     dbus          initctl      mount             snapd-snap.socket  tmpfiles.d        utmp
+apport.socket  credentials    docker        lock         sendsigs.omit.d   snapd.socket       ubuntu-advantage  uuidd
+cloud-init     crond.pid      docker.pid    log          setrans           sudo               udev
+faisel05@IN2-1037208LT:/var/run$ cd docker/
+-bash: cd: docker/: Permission denied
+faisel05@IN2-1037208LT:/var/run$ ls -l
+total 16
+drwxr-xr-x  2 root root    100 Nov  3 12:23 WSL
+-rw-------  1 root root      0 Nov  3 12:23 agetty.reload
+srw-------  1 root root      0 Nov  3 12:23 apport.socket
+drwxr-xr-x  2 root root    120 Nov  3 12:23 cloud-init
+drwxr-xr-x  2 root root     80 Nov  3 12:23 console-setup
+drwx--x--x  5 root root    140 Nov  3 12:26 containerd
+drwxr-xr-x  2 root root     40 Nov  3 12:23 credentials
+-rw-r--r--  1 root root      4 Nov  3 12:23 crond.pid
+----------  1 root root      0 Nov  3 12:23 crond.reboot
+drwxr-xr-x  3 root root     80 Nov  3 12:23 dbus
+drwx------  7 root root    180 Nov  3 12:26 docker
+-rw-r--r--  1 root root      4 Nov  3 12:25 docker.pid
+srw-rw----  1 root docker    0 Nov  3 12:25 docker.sock
+prw-------  1 root root      0 Nov  3 12:23 initctl
+drwxrwxrwt  3 root root     60 Nov  3 12:23 lock
+drwxr-xr-x  3 root root     60 Nov  3 12:23 log
+-rw-r--r--  1 root root    709 Nov  3 12:23 motd.dynamic.new
+drwxr-xr-x  2 root root     40 Nov  3 12:23 mount
+drwxr-xr-x  2 root root     40 Nov  3 12:23 sendsigs.omit.d
+drwxr-xr-x  2 root root     40 Nov  3 12:23 setrans
+drwxrwxrwt  2 root root     40 Nov  3 12:23 shm
+srw-rw-rw-  1 root root      0 Nov  3 12:23 snapd-snap.socket
+srw-rw-rw-  1 root root      0 Nov  3 12:23 snapd.socket
+drwx--x--x  3 root root     60 Nov  3 12:24 sudo
+drwxr-xr-x 25 root root    640 Nov  3 12:25 systemd
+drwxr-xr-x  2 root root     80 Nov  3 12:23 tmpfiles.d
+drwxr-xr-x  3 root root     60 Nov  3 12:24 ubuntu-advantage
+drwxr-xr-x  7 root root    160 Nov  3 12:28 udev
+drwxr-xr-x  3 root root     60 Nov  3 12:23 user
+-rw-rw-r--  1 root utmp   2304 Nov  3 12:26 utmp
+drwxr-xr-x  2 root root     60 Nov  3 12:23 uuidd
+faisel05@IN2-1037208LT:/var/run$ chmod 777 docker
+chmod: changing permissions of 'docker': Operation not permitted
+faisel05@IN2-1037208LT:/var/run$ sudo chmod 777 docker
+faisel05@IN2-1037208LT:/var/run$ cd docker/
+faisel05@IN2-1037208LT:/var/run/docker$ ls
+containerd  libnetwork  metrics.sock  netns  plugins  runtime-runc  unmount-on-shutdown
+faisel05@IN2-1037208LT:/var/run/docker$ docker images
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+faisel05@IN2-1037208LT:/var/run/docker$   sudo docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+faisel05@IN2-1037208LT:/var/run/docker$ cd ../../..
+faisel05@IN2-1037208LT:/$ docker run -it ubuntu bash
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+
+Run 'docker run --help' for more information
+faisel05@IN2-1037208LT:/$ sudo systemctl enable docker
+Synchronizing state of docker.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable docker
+faisel05@IN2-1037208LT:/$ docker login
+
+USING WEB-BASED LOGIN
+
+i Info → To sign in with credentials on the command line, use 'docker login -u <username>'
+
+
+Your one-time device confirmation code is: CNPB-DKCF
+Press ENTER to open your browser or submit your device code here: https://login.docker.com/activate
+
+Waiting for authentication in the browser…
+
+1234
+
+WARNING! Your credentials are stored unencrypted in '/home/faisel05/.docker/config.json'.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/go/credential-store/
+
+Login Succeeded
+faisel05@IN2-1037208LT:/$ 1234
+1234: command not found
+faisel05@IN2-1037208LT:/$ docker login -u your_username
+
+i Info → A Personal Access Token (PAT) can be used instead.
+         To create a PAT, visit https://app.docker.com/settings
+
+
+Password:
+Get "https://registry-1.docker.io/v2/": unauthorized: incorrect username or password
+faisel05@IN2-1037208LT:/$ cat ~/.docker/config.json
+{
+        "auths": {
+                "https://index.docker.io/v1/": {
+                        "auth": "ZmFpc2VsMDU6ZGNrcl9wYXRfVTBXMjdPZDNJRnZieGRpUlc3YXpzWFhaMFJ3"
+                },
+                "https://index.docker.io/v1/access-token": {
+                        "auth": "ZmFpc2VsMDU6ZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0lzSW10cFpDSTZJbmhZYTNCQ2RETnlWM015UnkxMVlqbHNjRXBuY1NKOS5leUpvZEhSd2N6b3ZMMmgxWWk1a2IyTnJaWEl1WTI5dElqcDdJbVZ0WVdsc0lqb2labUZwYzJWc1kycEFaMjFoYVd3dVkyOXRJaXdpYzJWemMybHZibDlwWkNJNkltVmpOamszTnprM0xXWXlPVEl0TkRRMll5MDRNbU15TFRZNE5HWTFNMk13TlRsaVppSXNJbk52ZFhKalpTSTZJbWR2YjJkc1pTMXZZWFYwYURJaUxDSjFjMlZ5Ym1GdFpTSTZJbVpoYVhObGJEQTFJaXdpZFhWcFpDSTZJbUl6WmpZMU9HRTJMVGN3WkRjdE5EaGpNaTFoTXpWbUxUVmtZemMyTWpnM1pqQXpOQ0o5TENKcGMzTWlPaUpvZEhSd2N6b3ZMMnh2WjJsdUxtUnZZMnRsY2k1amIyMHZJaXdpYzNWaUlqb2laMjl2WjJ4bExXOWhkWFJvTW53eE1Ea3pPVEU1TlRZek1EUTNOVFV4TlRReU1qWWlMQ0poZFdRaU9sc2lhSFIwY0hNNkx5OW9kV0l1Wkc5amEyVnlMbU52YlNJc0ltaDBkSEJ6T2k4dlpHOWphMlZ5TFhCeWIyUXVkWE11WVhWMGFEQXVZMjl0TDNWelpYSnBibVp2SWwwc0ltbGhkQ0k2TVRjMk1qRTNNekkzTnl3aVpYaHdJam94TnpZeU1UYzJPRGMzTENKelkyOXdaU0k2SW05d1pXNXBaQ0J2Wm1ac2FXNWxYMkZqWTJWemN5SXNJbUY2Y0NJNklrdzBkakJrYld4T1FuQlpWV3BIUjJGaU1FTXlTblJuVkdkWWNqRlJlalJrSW4wLmZhcGQwV1VadkJlWndjY0ExbV9SbDNZWF9YUGx6UnJRUmJQQ2EzaktSSklKUndNbWs3R1lTTWl3R1FHSkRUZDVUcFZmUEpBMklyMUMxTTVxMFR0enlsOENScUFUZlkxWHpGbEJwaGNfZE0wQ19fNG9EWXhBYUd6RjAwWmVOejkxNmczOEtfSnhOdWJ1VnJxbENCVktLbDYwYmJMQXRSZE9jdGNQdG16bTBPcTZTdVB0NThlQ3p0SEFJYW9oUTd6Z3oxbEUtWWtya0Y2X3dpM1ZUV19YYVRkMlJqeU1wV1JkdGdEdFdibUVWaVVBQUowQ2o5LXlQN05KUWhhUERDSzVoeE5GUjBfOEZqQ2lJd2Q1dmlzcWJlS1V0WUpJUEcyMEF1ZDM4VDJrMnhwZU9Eb3hubTh0TFhpNXJzNXNiYkhKbjB2dTd4Ti01MzJ2ZFZLVDktRUJWQQ=="
+                },
+                "https://index.docker.io/v1/refresh-token": {
+                        "auth": "ZmFpc2VsMDU6djEuTVJFUk4xOWhrNkZveFpqNld4ZDlHRHEtZXExVTkya29GN25mdXNpaUwzeHhXVHhwcmJJM0NFSGVyWl81QXdmaGpjTXcteVZlVnpBQU1XeWFIVXRKMklRLi5MNHYwZG1sTkJwWVVqR0dhYjBDMkp0Z1RnWHIxUXo0ZA=="
+                }
+        }
+}faisel05@IN2-1037208LT:/$docker pull nginxx
+docker run -d -p 8080:80 nginx
+Using default tag: latest
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.51/images/create?fromImage=docker.io%2Flibrary%2Fnginx&tag=latest": dial unix /var/run/docker.sock: connect: permission denied
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+
+Run 'docker run --help' for more information
+faisel05@IN2-1037208LT:/$ docker run -d -p 8080:80 nginx
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+
+Run 'docker run --help' for more information
+faisel05@IN2-1037208LT:/$ apt install docker
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+faisel05@IN2-1037208LT:/$ apt install docker
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+faisel05@IN2-1037208LT:/$ sudo docker pull nginx
+sudo docker run -d -p 8080:80 nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+38513bd72563: Pull complete
+a0a6ab141558: Pull complete
+0e86847a3920: Pull complete
+1bace2083289: Pull complete
+89df300a082a: Pull complete
+35fb9ffa6621: Pull complete
+5545b08f9d26: Pull complete
+Digest: sha256:f547e3d0d5d02f7009737b284abc87d808e4252b42dceea361811e9fc606287f
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+5b0f3c86cac71511cb9f896d6b8f1bebf36de1d0f45823b8c3fd9321914d7695
+faisel05@IN2-1037208LT:/$ docker ps
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.51/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+faisel05@IN2-1037208LT:/$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                     NAMES
+5b0f3c86cac7   nginx     "/docker-entrypoint.…"   21 seconds ago   Up 21 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   suspicious_hofstadter
+faisel05@IN2-1037208LT:/$ http://localhost:8080
+-bash: http://localhost:8080: No such file or directory
+faisel05@IN2-1037208LT:/$ sudo docker stop 5b0f
+5b0f
+faisel05@IN2-1037208LT:/$ sudo docker start 5b0f
+5b0f
+faisel05@IN2-1037208LT:/$ sudo docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+nginx         latest    9d0e6f6199dc   5 days ago     152MB
+hello-world   latest    1b44b5a3e06a   2 months ago   10.1kB
+faisel05@IN2-1037208LT:/$ cd usr/share/nginx/
+-bash: cd: usr/share/nginx/: No such file or directory
+faisel05@IN2-1037208LT:/$ sudo docker -it 9d0e
+unknown shorthand flag: 'i' in -it
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+faisel05@IN2-1037208LT:/$ sudo docker -it 9d0e bash
+unknown shorthand flag: 'i' in -it
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+faisel05@IN2-1037208LT:/$ sudo docker -it 9d0e /bin/bash
+unknown shorthand flag: 'i' in -it
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+faisel05@IN2-1037208LT:/$ sudo docker run 9d0e /bin/bash
+faisel05@IN2-1037208LT:/$ ls
+Personal  bin.usr-is-merged  dev  home  lib                lib64       media  opt   root  sbin                snap  sys  usr
+bin       boot               etc  init  lib.usr-is-merged  lost+found  mnt    proc  run   sbin.usr-is-merged  srv   tmp  var
+faisel05@IN2-1037208LT:/$ docker -it 9d0e /bin/bash
+unknown shorthand flag: 'i' in -it
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+faisel05@IN2-1037208LT:/$ docker -i 9d0e /bin/bash
+unknown shorthand flag: 'i' in -i
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+faisel05@IN2-1037208LT:/$ sudo docker exec -it 9d0e /bin/bash
+Error response from daemon: No such container: 9d0e
+faisel05@IN2-1037208LT:/$ docker ps
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.51/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+faisel05@IN2-1037208LT:/$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+5b0f3c86cac7   nginx     "/docker-entrypoint.…"   5 minutes ago   Up 3 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   suspicious_hofstadter
+faisel05@IN2-1037208LT:/$ sudo docker exec -it 5d0f /bin/bash
+Error response from daemon: No such container: 5d0f
+faisel05@IN2-1037208LT:/$ sudo docker exec -it 5d0f3c86cac7 /bin/bash
+Error response from daemon: No such container: 5d0f3c86cac7
+faisel05@IN2-1037208LT:/$ sudo docker exec -it 5d0f3c86cac7 bash
+Error response from daemon: No such container: 5d0f3c86cac7
+faisel05@IN2-1037208LT:/$ sudo docker exec -it 5b0f3c86cac7 /bin/bash
+root@5b0f3c86cac7:/# ls
+bin   dev                  docker-entrypoint.sh  home  lib64  mnt  proc  run   srv  tmp  var
+boot  docker-entrypoint.d  etc                   lib   media  opt  root  sbin  sys  usr
+root@5b0f3c86cac7:/# cd usr/share/nginx
+root@5b0f3c86cac7:/usr/share/nginx# ls
+html
+root@5b0f3c86cac7:/usr/share/nginx# cd html
+root@5b0f3c86cac7:/usr/share/nginx/html# ls
+50x.html  index.html
+root@5b0f3c86cac7:/usr/share/nginx/html# exit
+exit
+faisel05@IN2-1037208LT:/$ vi employee.html
+faisel05@IN2-1037208LT:/$ ls
+Personal  bin.usr-is-merged  dev  home  lib                lib64       media  opt   root  sbin                snap  sys  usr
+bin       boot               etc  init  lib.usr-is-merged  lost+found  mnt    proc  run   sbin.usr-is-merged  srv   tmp  var
+faisel05@IN2-1037208LT:/$ cd Personal/
+faisel05@IN2-1037208LT:/Personal$ ls
+dir1   dir2  dir4  dir6  dir8  firstscript.sh     new_file.txt   script.txt       thirdscript.sh
+dir10  dir3  dir5  dir7  dir9  monitor_system.sh  new_file2.txt  shell-script.sh
+faisel05@IN2-1037208LT:/Personal$ vi employee.html
+faisel05@IN2-1037208LT:/Personal$ ls
+dir1   dir2  dir4  dir6  dir8  employee.html   monitor_system.sh  new_file2.txt  shell-script.sh
+dir10  dir3  dir5  dir7  dir9  firstscript.sh  new_file.txt       script.txt     thirdscript.sh
+faisel05@IN2-1037208LT:/Personal$ sudo docker cp employee.html 5b0f:usr/share/ngnix/html
+Successfully copied 8.19kB to 5b0f:usr/share/ngnix/html
+Error response from daemon: Could not find the file usr/share/ngnix in container 5b0f
+faisel05@IN2-1037208LT:/Personal$ sudo docker cp employee.html 5b0f:/usr/share/nginx/html
+Successfully copied 8.19kB to 5b0f:/usr/share/nginx/html
+faisel05@IN2-1037208LT:/Personal$ cd ..
+faisel05@IN2-1037208LT:/$ docker start 5b0f
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.51/containers/5b0f/start": dial unix /var/run/docker.sock: connect: permission denied
+Error: failed to start containers: 5b0f
+faisel05@IN2-1037208LT:/$ sudo docker start 5b0f
+5b0f
+faisel05@IN2-1037208LT:/$ sudo docker
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  bake        Build from a file
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Authenticate to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default "/root/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default
+                           context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host string        Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info", "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/root/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/root/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/root/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+faisel05@IN2-1037208LT:/$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                     NAMES
+5b0f3c86cac7   nginx     "/docker-entrypoint.…"   18 minutes ago   Up 16 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   suspicious_hofstadter
+faisel05@IN2-1037208LT:/$ sudo docker stop 5b0f
+5b0f
+faisel05@IN2-1037208LT:/$ sudo docker start 5b0f
+5b0f
+faisel05@IN2-1037208LT:/$ sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+023a182c62a0: Pull complete
+f5f78fcd9ccb: Pull complete
+494c372d15c3: Pull complete
+dcee80f7340c: Pull complete
+480d01bd7a6a: Pull complete
+834e15e3ed24: Pull complete
+c276de9b5571: Pull complete
+0cd145fbb449: Pull complete
+5a3f7744d0e7: Pull complete
+21aa606d8d58: Pull complete
+Digest: sha256:569c4128dfa625ac2ac62cdd8af588a3a6a60a049d1a8d8f0fac95880ecdbbe5
+Status: Downloaded newer image for mysql:latest
+b7b6a6fd6f48517c78877f170f4d88a808504fbbc0553f5652fd67ff2b7712af
+faisel05@IN2-1037208LT:/$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                     NAMES
+b7b6a6fd6f48   mysql     "docker-entrypoint.s…"   59 seconds ago   Up 58 seconds   3306/tcp, 33060/tcp                       some-mysql
+5b0f3c86cac7   nginx     "/docker-entrypoint.…"   28 minutes ago   Up 8 minutes    0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   suspicious_hofstadter
+faisel05@IN2-1037208LT:/$ docker exec -it b7b6 bash
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.51/containers/b7b6/json": dial unix /var/run/docker.sock: connect: permission denied
+faisel05@IN2-1037208LT:/$ sudo docker exec -it b7b6 bash
+bash-5.1# ls
+afs  boot  docker-entrypoint-initdb.d  home  lib64  mnt  proc  run   srv  tmp  var
+bin  dev   etc                         lib   media  opt  root  sbin  sys  usr
+bash-5.1# mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+bash-5.1# mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 9.5.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ls
+    -> CREATE DATABASE DEMO;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ls
+CREATE DATABASE DEMO' at line 1
+mysql> ls CREATE DATABASE Demo;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ls CREATE DATABASE Demo' at line 1
+mysql> CREATE DATABASE Demo;
+Query OK, 1 row affected (0.006 sec)
+
+mysql> use Demo;
+Database changed
+mysql> CREATE TABLE employees (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     email VARCHAR(100) UNIQUE,
+    ->     hire_date DATE,
+    ->     salary DECIMAL(10, 2)
+    -> );
+Query OK, 0 rows affected (0.027 sec)
+
+mysql> INSERT INTO employees (first_name, last_name, email, hire_date, salary)
+    -> VALUES
+    -> ('Jane', 'Smith', 'jane.smith@example.com', '2024-07-15', 60000.00),
+    -> ('Alex', 'Brown', 'alex.brown@example.com', '2024-08-10', 58000.00),
+    -> ('Maria', 'Garcia', 'maria.garcia@example.com', '2024-09-20', 62000.00);
+Query OK, 3 rows affected (0.018 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from employees;
++----+------------+-----------+--------------------------+------------+----------+
+| id | first_name | last_name | email                    | hire_date  | salary   |
++----+------------+-----------+--------------------------+------------+----------+
+|  1 | Jane       | Smith     | jane.smith@example.com   | 2024-07-15 | 60000.00 |
+|  2 | Alex       | Brown     | alex.brown@example.com   | 2024-08-10 | 58000.00 |
+|  3 | Maria      | Garcia    | maria.garcia@example.com | 2024-09-20 | 62000.00 |
++----+------------+-----------+--------------------------+------------+----------+
+3 rows in set (0.001 sec)
+
+mysql> exit
+Bye
+bash-5.1# exit
+exit
+faisel05@IN2-1037208LT:/$ sudo docker run --name mysql-db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=employees_db -p 3306:3306 -d mysql:8
+Unable to find image 'mysql:8' locally
+8: Pulling from library/mysql
+023a182c62a0: Already exists
+f5f78fcd9ccb: Already exists
+494c372d15c3: Already exists
+0d0f66273639: Pull complete
+6d7d6105636e: Pull complete
+3763684269ad: Pull complete
+f7c524da3882: Pull complete
+824d865d5643: Pull complete
+270bbb610640: Pull complete
+fe8b60e8a15a: Pull complete
+Digest: sha256:b306273d4d36bc1a7f265130c3dd93c0462253af7634203e569add0403a7b273
+Status: Downloaded newer image for mysql:8
+5ee1d631d0909fdf443b61b40db288a3d5a90177b181e0d67ac4ae552f120b1b
