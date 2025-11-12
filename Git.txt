@@ -15,6 +15,7 @@ Git cherry pick
 What is Git fork?
 
 
+ git pull origin main --allow-unrelated-histories --The command is used to fetch changes from the remote main branch and merge them into your current local branch, even if the two branches have no common commit history.
 
 1. Command	Definition
     git config --global user.name "Your Name"
