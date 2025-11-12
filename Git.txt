@@ -1,4 +1,5 @@
 Mastering Git for Version Control
+Hi everyone
 
 Difference between CVCS and DVCS
 Importance of Git
