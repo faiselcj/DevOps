@@ -47,6 +47,36 @@ Rewrites history by moving your branch's commits to the tip of the base branch, 
 3.branching strategy
 A branching strategy in Git is a set of rules and conventions that a development team uses to manage how they create, name, manage, and merge branches to maintain a stable and organized codebase. 
 The goal is to allow multiple developers to work in parallel on new features or bug fixes without interfering with the main, stable code.
+Git Branching Flow – Summary 
+main branch (also called master or trunk)
+→ Holds the stable, production-ready code. Always up-to-date.
+
+Feature branch
+→ Created from main to develop a new feature or a breaking change.
+→ Developers collaborate here independently.
+→ Example: feature/login-auth.
+
+Merge
+→ Once the feature is complete and tested, the feature branch is merged into main.
+→ Optionally, the branch is deleted after merging to keep the repo clean.
+
+Release branch
+→ Created from main when preparing for a production release.
+→ Used for final testing, bug fixes, and polishing before deployment.
+→ Example: release/v1.0.
+
+Ship/Deploy
+→ Code from the release branch is deployed to production.
+→ Release is tagged for versioning (e.g., v1.0.0).
+
+Hotfix branch
+→ Created directly from main when an urgent bug or critical issue occurs in production.
+→ After the fix, it's merged into both main and release branches.  
+                                                                                                                                                                                                                                                   ~main → feature → merge to main → release → test → ship
+→ If urgent issue: main → hotfix → fix → merge back to main and release
+
+Master(main branch for), feature branch for added functionality. Release branch for delivery to customer, instead of building application from master we build and deliver to customer from release branch.
+Master branch is for active development. Master branch can be for testing.
 
 3. What is Git?
 Git is a free and open-source distributed version control system (DVCS) used to track changes in source code and other files during software development. It allows multiple developers to collaborate on the same project simultaneously without overwriting each other's work and makes it easy to revert to previous versions if issues arise.
